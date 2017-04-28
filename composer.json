@@ -1,0 +1,18 @@
+{
+  "name": "bavix/iterator",
+  "description": "Iterator",
+  "type": "library",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "REZ1DENT3",
+      "email": "info@babichev.net"
+    }
+  ],
+  "require": {},
+  "autoload": {
+    "psr-4": {
+      "Bavix\\": "src/"
+    }
+  }
+}

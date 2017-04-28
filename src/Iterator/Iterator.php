@@ -2,6 +2,8 @@
 
 namespace Bavix\Iterator;
 
+use Bavix\Helpers\JSON;
+
 class Iterator implements \Countable, \Iterator, \Serializable, \ArrayAccess
 {
 

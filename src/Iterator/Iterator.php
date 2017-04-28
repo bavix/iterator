@@ -11,6 +11,59 @@ class Iterator implements \Countable, \Iterator, \Serializable, \ArrayAccess
     protected $data;
 
     /**
+     * @return string
+     */
+    public function __toString()
+    {
+        return JSON::encode($this->data);
+    }
+
+    /**
+     * @return array
+     */
+    public function __debugInfo()
+    {
+        return $this->data;
+    }
+
+    /**
+     * @return string
+     */
+    public function export()
+    {
+        return var_export($this->data, true);
+    }
+
+    /**
+     * @param string $offset
+     *
+     * @return array|mixed
+     */
+    public function __get($offset)
+    {
+        return $this->offsetGet( $offset );
+    }
+
+    /**
+     * @param string $offset
+     * @param mixed $value
+     */
+    public function __set($offset, $value)
+    {
+        $this->offsetSet($offset, $value);
+    }
+
+    /**
+     * @param string $offset
+     *
+     * @return bool
+     */
+    public function __isset($offset)
+    {
+        return $this->offsetExists($offset);
+    }
+
+    /**
      * @return int
      */
     public function count()

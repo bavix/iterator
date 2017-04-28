@@ -9,7 +9,9 @@
       "email": "info@babichev.net"
     }
   ],
-  "require": {},
+  "require": {
+    "bavix/helpers": "^1.0"
+  },
   "autoload": {
     "psr-4": {
       "Bavix\\": "src/"

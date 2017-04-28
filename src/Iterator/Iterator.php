@@ -13,6 +13,25 @@ class Iterator implements \Countable, \Iterator, \Serializable, \ArrayAccess
     protected $data;
 
     /**
+     * @return array
+     */
+    public function asArray()
+    {
+        return $this->data;
+    }
+
+    /**
+     * @param string $offset
+     * @param mixed  $default
+     *
+     * @return mixed
+     */
+    public function atData($offset, $default = null)
+    {
+        return $this->data[$offset] ?? $default;
+    }
+
+    /**
      * @return string
      */
     public function __toString()

@@ -4,7 +4,7 @@ namespace Bavix\Iterator;
 
 use Bavix\Helpers\JSON;
 
-class Iterator implements \Countable, \Iterator, \Serializable, \ArrayAccess
+class Iterator implements \Countable, \Iterator, \Serializable, \ArrayAccess, \JsonSerializable
 {
 
     /**
@@ -186,6 +186,14 @@ class Iterator implements \Countable, \Iterator, \Serializable, \ArrayAccess
     public function offsetUnset($offset)
     {
         unset($this->data[$offset]);
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function jsonSerialize()
+    {
+        return $this->asArray();
     }
 
 }

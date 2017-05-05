@@ -15,7 +15,7 @@ class Iterator implements \Countable, \Iterator, \Serializable, \ArrayAccess, \J
     /**
      * Iterator constructor.
      *
-     * @param array|null $data
+     * @param array $data
      */
     public function __construct(array $data = [])
     {

@@ -7,6 +7,12 @@ use Bavix\Helpers\JSON;
 class Iterator implements \Countable, \Iterator, \Serializable, \ArrayAccess, \JsonSerializable
 {
 
+    use Traits\Countable;
+    use Traits\Iterator;
+    use Traits\Serializable;
+    use Traits\ArrayAccess;
+    use Traits\JsonSerializable;
+
     /**
      * @var array
      */
@@ -27,7 +33,7 @@ class Iterator implements \Countable, \Iterator, \Serializable, \ArrayAccess, \J
      */
     public function asArray()
     {
-        return $this->data;
+        return $this->jsonSerialize();
     }
 
     /**
@@ -39,22 +45,6 @@ class Iterator implements \Countable, \Iterator, \Serializable, \ArrayAccess, \J
     public function atData($offset, $default = null)
     {
         return $this->data[$offset] ?? $default;
-    }
-
-    /**
-     * @return string
-     */
-    public function __toString()
-    {
-        return JSON::encode($this->data);
-    }
-
-    /**
-     * @return array
-     */
-    public function __debugInfo()
-    {
-        return $this->data;
     }
 
     /**
@@ -95,54 +85,6 @@ class Iterator implements \Countable, \Iterator, \Serializable, \ArrayAccess, \J
     }
 
     /**
-     * @return int
-     */
-    public function count()
-    {
-        return count($this->data);
-    }
-
-    /**
-     * @inheritdoc
-     */
-    public function current()
-    {
-        return current($this->data);
-    }
-
-    /**
-     * @inheritdoc
-     */
-    public function next()
-    {
-        return next($this->data);
-    }
-
-    /**
-     * @inheritdoc
-     */
-    public function key()
-    {
-        return key($this->data);
-    }
-
-    /**
-     * @inheritdoc
-     */
-    public function valid()
-    {
-        return $this->key() !== null;
-    }
-
-    /**
-     * @inheritdoc
-     */
-    public function rewind()
-    {
-        reset($this->data);
-    }
-
-    /**
      * @return array
      */
     public function __sleep()
@@ -151,59 +93,19 @@ class Iterator implements \Countable, \Iterator, \Serializable, \ArrayAccess, \J
     }
 
     /**
-     * @inheritdoc
+     * @return string
      */
-    public function serialize()
+    public function __toString()
     {
-        return serialize($this->data);
+        return JSON::encode($this->data);
     }
 
     /**
-     * @inheritdoc
+     * @return array
      */
-    public function unserialize($serialized)
+    public function __debugInfo()
     {
-        $this->data = unserialize($serialized, []);
-    }
-
-    /**
-     * @inheritdoc
-     */
-    public function offsetExists($offset)
-    {
-        return isset($this->data[$offset]);
-    }
-
-    /**
-     * @inheritdoc
-     */
-    public function offsetGet($offset)
-    {
-        return $this->data[$offset];
-    }
-
-    /**
-     * @inheritdoc
-     */
-    public function offsetSet($offset, $value)
-    {
-        $this->data[$offset] = $value;
-    }
-
-    /**
-     * @inheritdoc
-     */
-    public function offsetUnset($offset)
-    {
-        unset($this->data[$offset]);
-    }
-
-    /**
-     * @inheritdoc
-     */
-    public function jsonSerialize()
-    {
-        return $this->asArray();
+        return $this->data;
     }
 
 }

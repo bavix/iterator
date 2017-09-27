@@ -62,12 +62,12 @@ class Iterator implements \Countable, \Iterator, \Serializable, \ArrayAccess, \J
      */
     public function __get($offset)
     {
-        return $this->offsetGet( $offset );
+        return $this->offsetGet($offset);
     }
 
     /**
      * @param string $offset
-     * @param mixed $value
+     * @param mixed  $value
      */
     public function __set($offset, $value)
     {
@@ -86,6 +86,8 @@ class Iterator implements \Countable, \Iterator, \Serializable, \ArrayAccess, \J
 
     /**
      * @return array
+     *
+     * @codeCoverageIgnore
      */
     public function __sleep()
     {
@@ -102,6 +104,8 @@ class Iterator implements \Countable, \Iterator, \Serializable, \ArrayAccess, \J
 
     /**
      * @return array
+     *
+     * @codeCoverageIgnore
      */
     public function __debugInfo()
     {

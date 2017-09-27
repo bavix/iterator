@@ -6,7 +6,7 @@ trait IteratorAggregate
 {
 
     /**
-     * @return Iterator
+     * @return \Bavix\Iterator\Iterator
      */
     public function getIterator()
     {

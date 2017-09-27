@@ -132,7 +132,6 @@ class IteratorTest extends Unit
             $this->assertTrue(isset($this->iterator->{$key}));
 
             unset($this->iterator->{$key});
-
             $this->assertFalse(isset($this->iterator->{$key}));
         }
     }

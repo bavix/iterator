@@ -85,6 +85,14 @@ class Iterator implements \Countable, \Iterator, \Serializable, \ArrayAccess, \J
     }
 
     /**
+     * @param string $offset
+     */
+    public function __unset($offset)
+    {
+        $this->offsetUnset($offset);
+    }
+
+    /**
      * @return array
      *
      * @codeCoverageIgnore

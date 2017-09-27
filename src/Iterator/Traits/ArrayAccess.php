@@ -7,6 +7,7 @@ trait ArrayAccess
 
     /**
      * @inheritdoc
+     * @param string $offset
      */
     public function offsetExists($offset)
     {
@@ -15,6 +16,7 @@ trait ArrayAccess
 
     /**
      * @inheritdoc
+     * @param string $offset
      */
     public function offsetGet($offset)
     {
@@ -23,6 +25,7 @@ trait ArrayAccess
 
     /**
      * @inheritdoc
+     * @param string $offset
      */
     public function offsetSet($offset, $value)
     {

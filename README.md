@@ -18,3 +18,8 @@ iterator - object for creation of the iterated objects.
 * **Version**: [![Latest Stable Version](https://poser.pugx.org/bavix/iterator/v/stable)](https://packagist.org/packages/bavix/iterator)
 * **PHP Version**: 7.1+ 
 * **[Composer](https://getcomposer.org/):** `composer require bavix/iterator`
+
+---
+Supported by
+
+[![Supported by JetBrains](https://cdn.rawgit.com/bavix/development-through/46475b4b/jetbrains.svg)](https://www.jetbrains.com/)
